@@ -38,7 +38,7 @@ Below is the conceptual cloud infrastructure mapping illustrating the pipeline e
 * **Lifecycle Rule:** Enabled a 90-day transition to Glacier Flexible Retrieval to optimize corporate storage compliance costs.
 
 **2. AWS Lambda (The Python Analysis Engine)**
-* **Runtime Environment:** Configured natively on Python 3.12 with an architecture profile set to arm64 for cost efficiency.
+* **Runtime Environment:** Configured natively on Python.
 * **Timeout Settings:** Adjusted the execution limit to 1 minute (default is 3 seconds) to ensure plenty of overhead for processing deep nested IAM loops.
 * **Environment Configuration:** Securely injected the targets using environment variables (AUDIT_BUCKET and SNS_TOPIC_ARN), completely avoiding hardcoded strings.
 
@@ -49,7 +49,7 @@ Below is the conceptual cloud infrastructure mapping illustrating the pipeline e
 
 **4. Amazon EventBridge (The Event Bus Routing)**
 * **Global Rule (us-east-1):** Intercepts global IAM API patterns from CloudTrail using a designated JSON event pattern targeting CreateRole, AttachRolePolicy, and PutRolePolicy events.
-* **Target Mapping:** Set up to forward matching events directly across regions to your localized EventBridge bus in your home region.
+* **Target Mapping:** Set up to forward matching events directly across regions to my localized EventBridge bus in my home region.
 
 ---
 
@@ -69,5 +69,3 @@ Below is the conceptual cloud infrastructure mapping illustrating the pipeline e
 
 ---
 
-**3. Lambda Environment Variables Configuration:**
-![Lambda Config](images/lambda_config.png)
