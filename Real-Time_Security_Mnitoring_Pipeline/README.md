@@ -1,12 +1,6 @@
 **Real-Time AWS Security Monitoring Pipeline**
 
-This directory contains an event-driven cloud security architecture designed to intercept IAM role modifications in real time, evaluate permissions against toxic privilege escalation signatures, archive compliance logs, and fire instant alerts.
-
-**Architecture Topology**
-
-Below is the conceptual cloud infrastructure mapping illustrating the pipeline execution flow across distinct AWS geographic zones:
-
-
+This project is an automated cloud security watchdog. It intercepts IAM role modifications in real time, evaluates permissions against known privilege escalation signatures, archives audit logs to S3, and fires instant alerts via SNS to ensure immediate visibility into environment changes.
 
 ---
 
