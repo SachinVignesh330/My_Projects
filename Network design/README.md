@@ -1,16 +1,13 @@
-# Trunked Multi-VLAN Campus Network (v2)
+# Trunked Multi-VLAN Campus Network 
 
 Router-on-a-stick + VLSM addressing project built in Cisco Packet Tracer (1841 routers, 2960 switches).
 
-![Topology](topology-diagram.png)
 
-## What this is
+
+## Overview
 
 Simulated network for a small company with 10 departments across 6 offices, 3 routers. Switch 1's office has 3 departments (Sales, Marketing, Customer Success) and Switch 3's office has 3 departments (Finance, Legal, Procurement), so those two run trunk links with the router doing inter-VLAN routing through sub-interfaces (router-on-a-stick). The other 4 offices just have one department each on a plain access link. Everything runs on one `/24` (`192.168.63.0/24`), split with VLSM so all 256 addresses get used.
 
-## Why router-on-a-stick
-
-2960 switches are Layer 2 only, so no SVIs. Router-on-a-stick does the same job with the gear I had, and it's the config most commonly asked about for entry-level roles.
 
 ## Subnetting (VLSM)
 
@@ -110,14 +107,6 @@ Full configs in [`configs/`](configs/). Basic idea:
 
 R1 and R2 use static routes since they each connect to multiple subnets. R3 just has one default route since it's the last hop. No route summarization here — the subnets were packed by block size, not by which router owns them, so they don't group into clean summary lines.
 
-## Testing
-
-- `show vlan brief` on SW1/SW3
-- `show interfaces trunk` on SW1/SW3
-- `show ip interface brief` on R1/R2
-- `show ip route` on R1/R2/R3
-
-Screenshots in [`screenshots/`](screenshots/).
 
 ## Results
 
@@ -129,7 +118,7 @@ Built and tested in Packet Tracer. Trunks, sub-interfaces, and static routes all
 - 802.1Q trunking
 - Router-on-a-stick inter-VLAN routing
 - Static routing
-- Structured verification on a network too big to test pair-by-pair
+  
 
 ## Tools
 
