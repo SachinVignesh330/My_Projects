@@ -1,10 +1,6 @@
 # DHCP Relay Across a Multi-VLAN Network
 
-DHCP server setup with relay (`ip helper-address`) across trunked VLANs, built in Cisco Packet Tracer (1841 router, 2960 switches).
-
-![Topology](topology-diagram.png)
-
-## What this is
+## Overview
 
 1 router, 2 switches, 4 VLANs. Switch1 trunks 3 VLANs (PC0, PC1, PC5) up to the router, which does inter-VLAN routing through sub-interfaces (router-on-a-stick). Switch2 has one VLAN (PC2) on a plain access link. A DHCP server sits on Switch2's VLAN and hands out addresses to all 4 VLANs — including the 3 that aren't local to it — using DHCP relay.
 
