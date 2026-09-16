@@ -1,0 +1,94 @@
+Current configuration : 1136 bytes
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R1
+!
+!
+!
+enable secret 5 $1$mERr$fWXjLisNABvWkMK3Z9ETC/
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.63.30 255.255.255.224
+ ip helper-address 192.168.63.98
+!
+interface FastEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.63.62 255.255.255.224
+ ip helper-address 192.168.63.98
+!
+interface FastEthernet0/0.30
+ encapsulation dot1Q 30
+ ip address 192.168.63.94 255.255.255.224
+ ip helper-address 192.168.63.98
+!
+interface FastEthernet0/1
+ ip address 192.168.63.126 255.255.255.224
+ ip helper-address 192.168.63.98
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CAuthorized Access Only^C
+!
+!
+!
+!
+!
+line con 0
+ password 7 08331D5E1B160F12111F
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 08331D5E1B160F12111F
+ login
+!
+!
+!
+end
